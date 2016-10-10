@@ -26,3 +26,6 @@ game client
     game logic
     pulls cards
     cache downloaded data
+
+standalone api for peer based crypto (npm module)
+    mental poker
