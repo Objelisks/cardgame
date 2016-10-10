@@ -1,0 +1,57 @@
+cardgame a game with cards
+
+deterministically generate card game
+unit/integration testing from the start
+cache first service worker
+
+api
+
+/card
+    / - get random card
+    /id - get specific card
+/pack
+    / - get random card
+    /id - get specific pack
+
+
+game
+    zones
+        hand (player)
+        deck (player)
+        field (player)
+    card
+        effects
+    resource
+        
+
+crypto
+    #state
+        active player sees all other player's encrypted hands
+        active player sees all other player's hidden cards (encrypted)
+        all cards (visible and hidden) have id
+        ids change when zones change
+        map of id -> list of ctr values
+        
+    #game start
+        active player generates a pack
+        active player shares encrypted pack id (can now reveal key of pack to validate cards taken at end of game)
+        active player takes one card
+        active player passes remaining cards right
+        active player receives smaller pack from left
+    
+    #shuffling
+        active player encrypts each card with single key
+        active player passes deck left
+        left player shuffles deck
+        left player broadcasts deck order for active player
+        
+    #draw
+        active player broadcasts card draw (all players can see encrypted cards in hand) (card draw can be checked against public deck ordering)
+        
+    #play
+        active player broadcasts a card to play
+        active player broadcasts key to decrypt single card
+        
+    #takeback
+        moving a card from visible state to hidden state
+        re-encrypt each card in the same zone, shuffle (encrypt encrypted value with next counter value) 
