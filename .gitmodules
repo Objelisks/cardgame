@@ -1,9 +1,12 @@
 [submodule "api"]
 	path = api
 	url = https://github.com/Objelisks/cardgame-api
+	branch = master
 [submodule "client"]
 	path = client
 	url = https://github.com/Objelisks/cardgame-client
+	branch = master
 [submodule "host"]
 	path = host
 	url = https://github.com/Objelisks/cardgame-host
+	branch = master
